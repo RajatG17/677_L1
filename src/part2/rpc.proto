@@ -1,0 +1,53 @@
+
+
+
+// Stock Bazaar Service Definiton
+service StockBazaar{
+
+    // Stock Lookup method 
+    rpc Lookup(stockLookupMessage) returns (stockLookupResponseMessage){}
+
+    // Stock Trade method
+    rpc Trade(stockTradeRequestMessage) returns (stockTradeResponseMessage){}
+
+    // Stock Update Method
+    rpc Update(stockUpdateRequestMessage) returns (stockUpdateResponseMessage){}
+}
+
+// lookup request message  
+message stockLookupMessage{
+    required string stockName = 1;
+}
+
+// lookup response message
+message stockLookupResponseMessage{
+   required float lookupResponse = 1;
+   optional int32 tradingVolume = 2;
+}
+    
+
+// trade request message
+message stockTradeRequestMessage{
+    required string stockName = 1;
+    required int32 N = 2;
+    required string type = 3;
+}
+
+// trade response message
+message stockTradeResponseMessage{
+    required int32 tradeResult = 1;
+}
+
+// update request message
+message stockUpdateRequestMessage{
+    required string stockName = 1;
+    required float price = 2;
+}
+
+// update response message
+message stockUpdateResponseMessage{
+    required int32 updateResult = 1;
+}
+
+
+
