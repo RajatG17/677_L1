@@ -3,7 +3,12 @@ import os
 import socket
 
 cwd = os.getcwd()
+print("Current working directory : " + str(cwd))
+sys.path.append(cwd+"/util/")
 sys.path.append(cwd+"/../util/")
+sys.path.append(cwd+"/lab-1-asterix-and-the-stock-bazaar-677-lab1/src/part1/util/")
+
+print("sys.path : " + str(sys.path))
 
 import MyThreadPool
 
