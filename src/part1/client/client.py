@@ -1,19 +1,21 @@
 import sys
 import socket
 import random 
+import time
 
 class Client:
 
 	def StartClient(self, server_hostname, server_port) :
 		all_stock_names = ["GameStart", "FishCo"]
-		max_client_requests = 6000
+		max_client_requests = 3000
 		total = 0
-		while (True):
-			total = total+1
-			print("total : " + str(total))
-			if (total > max_client_requests):
-				print("Max client requests reached, breaking .. ")
-				break
+		#latencies = []
+		avg_latency = 0
+		for total in range(max_client_requests):
+			print("Client Request  : " + str(total))
+
+			start = time.perf_counter()
+
 			client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			#client_socket.connect((socket.gethostname(), 8899))
 			client_socket.connect((server_hostname, server_port))
@@ -34,6 +36,13 @@ class Client:
 			else:
 				print("Received response from server, stock price of : " + stockName + " is : " + str(returned_price))		
 			client_socket.close()
+			end = time.perf_counter() - start
+			#latencies.append(end)
+			print("Latency : " + str(end))
+			avg_latency = avg_latency+end
+			#print('{:.6f}s for the calculation'.format(end))
+		avg_latency = avg_latency/max_client_requests	
+		print("Average latency : " + str(avg_latency))	
 
 print(f"Arguments count: {len(sys.argv)}")
 if (len(sys.argv) != 3):
