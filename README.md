@@ -3,6 +3,12 @@ Compsci 677: Distributed and Operating Systems
 
 Spring 2023
 
+Lab Performed by : Shreya and Rajat
+
+Part 1 done by Shreya
+Part 2 done by Rajat
+
+
 # Lab 1: Asterix and the Stock Bazaar
 
 ## Goals and Learning Outcomes
