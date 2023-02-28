@@ -6,7 +6,7 @@ import rpc_pb2 as rpc__pb2
 
 
 class StockBazaarStub(object):
-    """Greeter Service Definiton
+    """Stock Bazaar Service Definiton
     """
 
     def __init__(self, channel):
@@ -33,7 +33,7 @@ class StockBazaarStub(object):
 
 
 class StockBazaarServicer(object):
-    """Greeter Service Definiton
+    """Stock Bazaar Service Definiton
     """
 
     def Lookup(self, request, context):
@@ -83,7 +83,7 @@ def add_StockBazaarServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class StockBazaar(object):
-    """Greeter Service Definiton
+    """Stock Bazaar Service Definiton
     """
 
     @staticmethod
