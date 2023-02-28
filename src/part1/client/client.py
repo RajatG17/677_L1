@@ -16,7 +16,7 @@ class Client:
 
 			start = time.perf_counter()
 
-			client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Create socket
 			#client_socket.connect((socket.gethostname(), 8899))
 			client_socket.connect((server_hostname, server_port))
 			methodName = "Lookup"
@@ -24,7 +24,7 @@ class Client:
 			stockName = all_stock_names[index]
 			buffer = methodName + "," + stockName
 			print("buffer : " + buffer)
-			client_socket.send(bytes(buffer, "utf8"))
+			client_socket.send(bytes(buffer, "utf8")) # Send buffer to server
 			returned_price = client_socket.recv(4096)
 			returned_price = returned_price.decode("utf-8")
 			if (returned_price == -1):

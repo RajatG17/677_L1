@@ -35,11 +35,11 @@ class Server:
 
     def StartServer(self, hostname, port):
         #self.server_socket.bind((socket.gethostname(), 8899))
-        self.server_socket.bind((hostname, port))
+        self.server_socket.bind((hostname, port)) # Bind Socket
         self.server_socket.listen()
         while (True):
             (client_socket, address) = self.server_socket.accept()
-            buffer = client_socket.recv(4096)
+            buffer = client_socket.recv(4096) # Receive buffer
             buffer = buffer.decode("utf-8")
             (method_name, stock_name) = buffer.split(",", 2)
             print("method_name : " + method_name)
@@ -50,7 +50,7 @@ class Server:
                 print("server_response : " + server_response.decode("utf-8"))    
                 client_socket.send(server_response)
             else :
-                self.server_thread_pool.IssueRequest(self.Lookup, [stock_name, client_socket, address])
+                self.server_thread_pool.IssueRequest(self.Lookup, [stock_name, client_socket, address])#Call Lookup method
 
     def StopServer(self):  
         self.server_thread_pool.StopAllThreads()      
