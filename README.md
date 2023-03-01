@@ -7,6 +7,7 @@ Lab Performed by : Shreya and Rajat
 
 Part 1 done by Shreya
 Part 2 done by Rajat
+Part 3 done by both 
 
 
 # Lab 1: Asterix and the Stock Bazaar
